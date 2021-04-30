@@ -13,8 +13,7 @@ export default function Home() {
         justifyContent: "center",
       }}
     >
-      <h1 style={{ color: "#fbfdfd" }}>It's working</h1>
-      <h3 style={{ color: "#ddd" }}>Thank you.</h3>
+      <h1 style={{ color: "#fbfdfd" }}>Lasker Media</h1>
     </div>
   );
 }
