@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import banner from "../../public/background.jpg";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
@@ -64,6 +66,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Lasker Media</title>
+      </Head>
       <Header />
       <Background>
         <BannerContainer>
