@@ -13,15 +13,17 @@ export default createGlobalStyle`
     }
 
    
-    html,
-    body,
-    /* body > div:first-child, */
+    /* html,
     div#__next,
+    body
+    /* body > div:first-child, */
     /* div#__next > div, */
-    #root
-    {
-        height: 100%;
-    }
+    /* #root */
+   // {
+     //   height: 100%;
+       // min-height: 100%;
+        //scroll-behavior: smooth;
+    //} */
 
 
 
@@ -31,32 +33,18 @@ export default createGlobalStyle`
         /* text-rendering: optimizeLegibility; */
     }
 
-    /* @font-face {
-      font-family: "OpenSans";
-      src: local('Open Sans'), url('/fonts/OpenSans-Regular.ttf') format('truetype');
-    }
-
-    @font-face {
-      font-family: "OpenSansBold";
-      src: local('Open Sans'), url('/fonts/OpenSans-Bold.ttf') format('truetype');
-    }
-  
-    @font-face {
-      font-family: "OpenSansSemiBold";
-      src: local('Open Sans'), url('/fonts/OpenSans-SemiBold.ttf') format('truetype');
-    }
-
-   */
 
     textarea, input[type="text"] {
       -webkit-appearance: none;
     }
 
     
-    body, input, button {
-      border:0;
+    body, input, button, a {
+      border: 0;
       outline: 0;
-      font: 16px 'Open Sans';
+      /* font-size: 16px; */
+      font-family: 'Roboto';
+      color: #fbfdfd;
     }
 
     body{
