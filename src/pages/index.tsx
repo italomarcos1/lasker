@@ -83,13 +83,13 @@ export default function Home() {
           <SubTitle>Como realizaremos seus sonhos e metas</SubTitle>
           <div>
             {services.map((s) => (
-              <Service content={s} />
+              <Service key={s.title} content={s} />
             ))}
           </div>
         </ServicesContainer>
         <Separator />
         <AlternateContainer content={contents[1]} orientation="right" />
-        <Separator />
+        <Separator id="contact" />
         <ContactContainer>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <Title>Contato</Title>

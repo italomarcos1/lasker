@@ -24,7 +24,9 @@ export default createGlobalStyle`
        // min-height: 100%;
         //scroll-behavior: smooth;
     //} */
-
+    body,html{
+      scroll-behavior: smooth;
+    }
 
 
     body {
