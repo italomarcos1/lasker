@@ -4,6 +4,7 @@ export type Service = {
 };
 
 export type AlternateContent = {
+  banner: string;
   title: string;
   subtitle: string;
   content: string;

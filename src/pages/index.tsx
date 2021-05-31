@@ -2,6 +2,8 @@ import { useCallback, useContext, useMemo, useState } from "react";
 import Head from "next/head";
 
 import banner from "../../public/background.jpg";
+import mission from "../../public/mission.jpg";
+import about from "../../public/about.jpg";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import AlternateContainer from "~/components/AlternateContainer";
@@ -56,12 +58,14 @@ export default function Home() {
   const contents = useMemo<AlternateContent[]>(
     () => [
       {
+        banner: mission,
         title: "Missão e Valores",
         subtitle: "A importância do tráfego local em 2021",
         content:
           "Estabeleça sua personalidade e marque território na Internet. Se torne uma referência na sua área através das redes sociais.",
       },
       {
+        banner: about,
         title: "Sobre a Lasker Media",
         subtitle: "Quem somos e o que nos motiva",
         content:

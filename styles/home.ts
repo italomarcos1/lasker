@@ -12,6 +12,10 @@ export const BannerContainer = styled.div`
   position: relative;
   width: 100%;
   height: 488px;
+
+  @media (max-width: 600px) {
+    height: 360px;
+  }
 `;
 
 export const Banner = styled.img`
@@ -24,6 +28,7 @@ export const Banner = styled.img`
 
   @media (max-width: 600px) {
     margin-top: 80px;
+    height: 360px;
   }
 `;
 
@@ -41,7 +46,12 @@ export const BannerContent = styled.strong`
   }
 
   @media (max-width: 600px) {
-    display: none;
+    /* display: none; */
+    left: 5%;
+    top: 15%;
+    max-width: 90%;
+    font-size: 36px;
+    line-height: 48px;
   }
 `;
 

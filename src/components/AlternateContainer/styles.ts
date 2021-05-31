@@ -28,8 +28,11 @@ export const Image = styled.img<OrientationProps>`
   background-color: #666;
   margin-left: ${({ orientation }) => (orientation === "left" ? 0 : 96)}px;
 
+  object-fit: cover;
+
   @media (max-width: 600px) {
-    width: 80%;
+    width: 90%;
+    height: 20%;
     margin-left: 0;
   }
 `;
