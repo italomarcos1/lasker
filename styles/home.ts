@@ -21,6 +21,10 @@ export const Banner = styled.img`
   margin-top: 144px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 600px) {
+    margin-top: 80px;
+  }
 `;
 
 export const BannerContent = styled.strong`
@@ -35,12 +39,23 @@ export const BannerContent = styled.strong`
   b {
     color: #e6b32a;
   }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 56px;
   line-height: 50px;
   font-weight: 700;
+
+  @media (max-width: 600px) {
+    margin-top: 24px;
+    font-size: 32px;
+    line-height: 36px;
+    width: 100%;
+  }
 `;
 
 export const SubTitle = styled.small`
@@ -48,13 +63,25 @@ export const SubTitle = styled.small`
   font-size: 28px;
   line-height: 36px;
   font-weight: 100;
-  color: #d8d8d8;
+  color: #cecece;
+
+  @media (max-width: 600px) {
+    margin-top: 8px;
+    font-size: 18px;
+    line-height: 27px;
+  }
 `;
 
 export const Description = styled.strong`
   margin-top: 36px;
   font-size: 28px;
   line-height: 36px;
+
+  @media (max-width: 600px) {
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 27px;
+  }
 `;
 
 export const ServicesContainer = styled.div`
@@ -64,12 +91,24 @@ export const ServicesContainer = styled.div`
   align-items: center;
   margin-top: 48px;
   padding: 0 168px;
+  text-align: center;
 
-  div {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 40px;
+  @media (max-width: 600px) {
+    padding: 0;
+    width: 80%;
+    margin: 48px auto 0;
+  }
+`;
+
+export const ServicesContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 56px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -81,6 +120,23 @@ export const ContactContainer = styled.div`
   padding: 0 120px;
   margin-top: 112px;
   height: 318px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    padding: 0;
+    height: auto;
+    margin: 40px auto 0;
+    width: 80%;
+  }
+`;
+
+export const ContactContent = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const Form = styled.div`
@@ -89,6 +145,12 @@ export const Form = styled.div`
   width: 422px;
   height: 318px;
   margin-left: 112px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 32px;
+  }
 `;
 
 export const SendContactButton = styled.button`
@@ -104,4 +166,11 @@ export const SendContactButton = styled.button`
   font-weight: bold;
   margin-top: 48px;
   font-size: 28px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-top: 32px;
+
+    font-size: 20px;
+  }
 `;

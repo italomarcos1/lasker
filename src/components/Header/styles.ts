@@ -1,8 +1,23 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.header`
+interface SmallHeaderProps {
+  smallHeader: boolean;
+}
+
+const mobileNone = css`
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
+const onlyMobile = css`
+  @media (min-width: 600px) {
+    display: none;
+  }
+`;
+
+export const Container = styled.header<SmallHeaderProps>`
   width: 100%;
-  height: 144px;
   background-color: #1b1b1b;
   display: flex;
   padding: 0 10% 0 15%;
@@ -12,6 +27,21 @@ export const Container = styled.header`
   top: 0;
   left: 0;
   z-index: 9999;
+  height: 144px;
+
+  @media (max-width: 600px) {
+    height: ${({ smallHeader }) => (smallHeader ? 56 : 80)}px;
+
+    padding: 0 7.5%;
+  }
+`;
+
+export const MobileButton = styled.button`
+  ${onlyMobile}
+
+  img {
+    width: 65%;
+  }
 `;
 
 export const Logo = styled.strong`
@@ -20,12 +50,20 @@ export const Logo = styled.strong`
   letter-spacing: 0.28px;
   font-family: "Rubik";
   text-transform: uppercase;
+
+  /* ${mobileNone} */
+
+  @media (max-width: 600px) {
+    font-size: 20px;
+  }
 `;
 
 export const NavBar = styled.nav`
   display: flex;
   height: 48px;
   align-items: center;
+
+  ${mobileNone}
 
   a {
     font-size: 24px;

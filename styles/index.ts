@@ -6,6 +6,7 @@ export default createGlobalStyle`
         padding: 0;
         outline: 0;
         box-sizing: border-box;
+        transition: all 0.2s;
     }
     
     *:focus{
@@ -24,8 +25,10 @@ export default createGlobalStyle`
        // min-height: 100%;
         //scroll-behavior: smooth;
     //} */
-    body,html{
+    body, html{
+      background-color: #1f1d1d;
       scroll-behavior: smooth;
+      transition: all 0.2s;
     }
 
 
@@ -61,7 +64,7 @@ export default createGlobalStyle`
         list-style: none;
     }
 
-    button, label {
+    button, a {
         cursor: pointer;
     }
 

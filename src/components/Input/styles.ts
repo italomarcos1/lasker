@@ -5,6 +5,18 @@ export const Container = styled.div`
   width: 422px;
   flex-direction: column;
 
+  & + div {
+    margin-top: 24px;
+
+    @media (max-width: 600px) {
+      margin-top: 18px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+
   label {
     font-weight: bold;
     color: #fbfdfd;
@@ -22,6 +34,11 @@ export const Container = styled.div`
 
     &::placeholder {
       color: #333;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 16px;
+      height: 48px;
     }
   }
 `;

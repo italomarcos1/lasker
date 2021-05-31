@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
-export const Container = styled.header`
+export const Container = styled.div`
   width: 100%;
   height: 320px;
   background-color: #1b1b1b;
   display: flex;
   margin-top: 272px;
+  padding: 0 20%;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    padding: 15% 0%;
+  }
 `;
 
 export const Logo = styled.strong`
@@ -14,32 +22,28 @@ export const Logo = styled.strong`
   letter-spacing: 0.28px;
   font-family: "Rubik";
   text-transform: uppercase;
-`;
 
-export const NavBar = styled.nav`
-  display: flex;
-  height: 48px;
-  align-items: center;
-
-  a {
-    font-size: 24px;
-    line-height: 66%;
-
-    & + a {
-      margin-left: 40px;
-    }
+  @media (max-width: 600px) {
+    font-size: 32px;
   }
 `;
 
-export const ContactButton = styled.button`
-  width: 210px;
-  height: 48px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e6b32a;
-  margin-left: 56px;
-  font-size: 21px;
-  font-weight: bold;
+export const LinkContent = styled.a`
+  font-size: 24px;
+  line-height: 110%;
+  /* background-color: #f90; */
+  /* text-align: center; */
+
+  & + a {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 20px;
+    text-align: left;
+
+    & + a {
+      margin-top: 20px;
+    }
+  }
 `;

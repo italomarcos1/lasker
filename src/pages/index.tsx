@@ -1,9 +1,13 @@
+import { useCallback, useContext, useMemo, useState } from "react";
 import Head from "next/head";
 
 import banner from "../../public/background.jpg";
 import Header from "~/components/Header";
 import Footer from "~/components/Footer";
 import AlternateContainer from "~/components/AlternateContainer";
+import Separator from "~/components/Separator";
+import Service from "~/components/Service";
+import Input from "~/components/Input";
 
 import {
   Background,
@@ -17,14 +21,17 @@ import {
   Title,
   ContactContainer,
   Form,
+  ContactContent,
+  ServicesContent,
 } from "@/styles/home";
-import Separator from "~/components/Separator";
-import Service from "~/components/Service";
-import { useMemo } from "react";
+
+import { api } from "~/services/api";
 import { AlternateContent, Service as IService } from "~/types";
-import Input from "~/components/Input";
 
 export default function Home() {
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+
   const services = useMemo<IService[]>(
     () => [
       {
@@ -64,6 +71,28 @@ export default function Home() {
     []
   );
 
+  const emptyFieldRegex = useMemo(() => new RegExp(/^(?=\w+).*$/), []);
+
+  const isFieldEmpty = useCallback((value) => emptyFieldRegex.test(value), []);
+
+  const handleSubmit = useCallback(async () => {
+    try {
+      if (!isFieldEmpty(name) || !isFieldEmpty(contact)) {
+        console.log("error email");
+        console.log(isFieldEmpty(name));
+        return;
+      }
+      console.log("ok email");
+
+      await api.post("/mail", {
+        name,
+        contact,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [name, contact, isFieldEmpty]);
+
   return (
     <>
       <Head>
@@ -86,35 +115,41 @@ export default function Home() {
         <ServicesContainer>
           <Title>Serviços</Title>
           <SubTitle>Como realizaremos seus sonhos e metas</SubTitle>
-          <div>
+          <ServicesContent>
             {services.map((s) => (
               <Service key={s.title} content={s} />
             ))}
-          </div>
+          </ServicesContent>
         </ServicesContainer>
         <Separator />
         <AlternateContainer content={contents[1]} orientation="right" />
         <Separator id="contact" />
         <ContactContainer>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <ContactContent>
             <Title>Contato</Title>
             <SubTitle>Se interessou? Marque uma consultoria</SubTitle>
             <Description>
-              Preencha seus dados que iremos entrar em contato, <br />
-              para saber sobre seu negócio e apresentar nossos
+              Iremos entrar em contato para saber sobre seu negócio,
               <br />
-              planos, totalmente sem compromisso.
+              totalmente sem compromisso.
+              <br />
               <br />E o café é por nossa conta :&#41;
             </Description>
-          </div>
+          </ContactContent>
           <Form>
-            <Input label="Nome" placeholder="Seu nome ou de sua empresa" />
+            <Input
+              label="Nome"
+              placeholder="Seu nome ou de sua empresa"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             <Input
               label="Contato"
               placeholder="Seu e-mail ou WhatsApp"
-              style={{ marginTop: 24 }}
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
             />
-            <SendContactButton>Enviar</SendContactButton>
+            <SendContactButton onClick={handleSubmit}>Enviar</SendContactButton>
           </Form>
         </ContactContainer>
         <Footer />
