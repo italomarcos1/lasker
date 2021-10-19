@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
       <Html lang="pt">
         <Head>
           <meta charSet="utf-8" />
+          <meta name="facebook-domain-verification" content="m8xey5r7mns8t0375iilphyenbbovs" />
 
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
